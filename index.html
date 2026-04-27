@@ -155,15 +155,16 @@
   }
 
   .hero {
-    padding: 4px 18px 4px;
+    padding: 0px 14px 0px;
     position: relative;
     z-index: 3;
+    flex-shrink: 0;
   }
 
   .album-art {
     width: 100%;
     aspect-ratio: 1/1;
-    max-height: 170px;
+    max-height: 160px;
     background: linear-gradient(135deg, #ff9cc0 0%, #ff6ba3 40%, #d9467a 100%);
     border-radius: 24px;
     display: flex;
@@ -177,14 +178,47 @@
     overflow: hidden;
   }
 
-  .album-art::before { content: '🎵'; position: absolute; font-size: 70px; opacity: 0.08; top: -10px; right: -5px; transform: rotate(15deg); }
-  .album-art h2 { font-size: 15px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1); letter-spacing: -0.3px; }
-  .album-art p { font-size: 10px; opacity: 0.8; font-weight: 500; }
+  .album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 24px;
+    transition: opacity 0.4s ease;
+  }
+
+  .album-art h2 {
+    font-size: 15px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: -0.3px;
+    position: relative;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+
+  .album-art p {
+    font-size: 10px;
+    opacity: 0.9;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+    padding: 2px 10px;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
 
   .ios-player {
     background: rgba(255, 255, 255, 0.22);
-    margin: 6px 15px 6px;
-    padding: 14px 18px 12px;
+    margin: 5px 12px 4px;
+    padding: 10px 14px 8px;
     border-radius: 28px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(20px);
@@ -192,14 +226,14 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     position: relative;
     z-index: 3;
+    flex-shrink: 0;
   }
 
-  /* HƏRƏKƏTLİ BAŞLIQ STİLİ */
   .now-playing {
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   .moving-title {
@@ -216,16 +250,16 @@
     100% { transform: translate(-100%, 0); }
   }
 
-  .now-playing p { font-size: 11px; opacity: 0.45; margin-bottom: 10px; font-weight: 500; }
+  .now-playing p { font-size: 11px; opacity: 0.45; margin-bottom: 8px; font-weight: 500; }
 
-  .progress-container { margin-bottom: 8px; }
+  .progress-container { margin-bottom: 6px; }
   .bar-bg { width: 100%; height: 4px; background: rgba(255,255,255,0.4); border-radius: 10px; cursor: pointer; position: relative; overflow: hidden; }
   .bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg,#ff6ba3,#d9467a); border-radius: 10px; transition: width 0.1s linear; position: relative; box-shadow: 0 0 6px rgba(255,107,163,0.3); }
   .bar-fill::after { content: ''; position: absolute; right: -4px; top: -3px; width: 10px; height: 10px; background: white; border-radius: 50%; box-shadow: 0 0 8px rgba(255,107,163,0.4); opacity: 0; transition: opacity 0.2s; }
   .bar-bg:hover .bar-fill::after { opacity: 1; }
   .time-info { display: flex; justify-content: space-between; font-size: 10px; margin-top: 3px; font-weight: 600; opacity: 0.5; letter-spacing: 0.2px; }
 
-  .controls { display: flex; justify-content: center; align-items: center; gap: 24px; margin-bottom: 4px; }
+  .controls { display: flex; justify-content: center; align-items: center; gap: 24px; margin-bottom: 2px; }
 
   .ctrl-btn {
     border: none;
@@ -233,8 +267,8 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     cursor: pointer;
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border-radius: 16px;
     display: flex;
     align-items: center;
@@ -249,10 +283,10 @@
   .ctrl-btn::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 50%); pointer-events: none; }
   .ctrl-btn:hover { background: rgba(255, 107, 163, 0.4); transform: translateY(-2px); box-shadow: 0 6px 25px rgba(255, 107, 163, 0.3); }
   .ctrl-btn:active { transform: scale(0.88); background: rgba(255, 107, 163, 0.5); }
-  .ctrl-btn.next, .ctrl-btn.prev { width: 44px; height: 44px; border-radius: 14px; }
+  .ctrl-btn.next, .ctrl-btn.prev { width: 42px; height: 42px; border-radius: 14px; }
 
   .ctrl-btn.play-pause {
-    width: 56px; height: 56px; border-radius: 20px;
+    width: 52px; height: 52px; border-radius: 20px;
     background: rgba(255, 107, 163, 0.35);
     border-color: rgba(255, 107, 163, 0.5);
     box-shadow: 0 4px 25px rgba(255, 107, 163, 0.2), inset 0 1px 0 rgba(255,255,255,0.3);
@@ -261,21 +295,21 @@
   .ctrl-btn.play-pause:active { background: rgba(255, 107, 163, 0.6); box-shadow: 0 2px 10px rgba(255, 107, 163, 0.2); }
 
   .ctrl-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     fill: #fff;
     filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
     transition: transform 0.2s ease;
   }
-  .ctrl-btn.play-pause svg { width: 22px; height: 22px; }
+  .ctrl-btn.play-pause svg { width: 20px; height: 20px; }
 
-  .track-list { flex: 1; overflow-y: auto; padding: 0 16px 12px; scrollbar-width: none; position: relative; z-index: 3; }
+  .track-list { flex: 1; overflow-y: auto; padding: 0 14px 10px; scrollbar-width: none; position: relative; z-index: 3; min-height: 0; }
   .track-list::-webkit-scrollbar { display: none; }
-  .track-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin-bottom: 5px; border-radius: 14px; cursor: pointer; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.15); }
+  .track-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin-bottom: 4px; border-radius: 14px; cursor: pointer; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.15); }
   .track-item:active { background: rgba(255,255,255,0.3); transform: scale(0.97); }
   .track-item.active { border: 1px solid var(--pink-accent); background: rgba(255,107,163,0.08); box-shadow: 0 0 16px rgba(255,107,163,0.06); }
-  .track-num { font-weight: 700; font-size: 11px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; background: rgba(255,107,163,0.12); border-radius: 8px; color: var(--pink-accent); }
-  .track-name { font-size: 12px; font-weight: 600; letter-spacing: -0.2px; }
+  .track-num { font-weight: 700; font-size: 11px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; background: rgba(255,107,163,0.12); border-radius: 8px; color: var(--pink-accent); flex-shrink: 0; }
+  .track-name { font-size: 12px; font-weight: 600; letter-spacing: -0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 </style>
 </head>
 <body>
@@ -300,15 +334,16 @@
   </div>
 
   <div class="hero">
-    <div class="album-art">
-      <h2></h2>
-      <p></p>
+    <div class="album-art" id="albumArt">
+      <img id="coverImage" src="" alt="cover" style="opacity:0;">
+      <h2 id="album-title"></h2>
+      <p id="album-artist"></p>
     </div>
   </div>
 
   <div class="ios-player">
     <div class="now-playing">
-      <div class="moving-title" id="display-title">SONG</div>
+      <div class="moving-title" id="display-title">♪ Mahnı seçin</div>
       <p id="display-artist"></p>
     </div>
 
@@ -363,23 +398,104 @@
   const progressFill = document.getElementById('progress-fill');
   const currTimeLabel = document.getElementById('curr-time');
   const totalTimeLabel = document.getElementById('total-time');
+  const coverImage = document.getElementById('coverImage');
+  const albumTitle = document.getElementById('album-title');
+  const albumArtist = document.getElementById('album-artist');
 
   let currentIdx = 0;
   
   const songs = [
-    { name: "Billion Stars", format: "m4a" },
-    { name: "Her Nerdeysen", format: "m4a" },
-    { name: "X POIZI - SONBAHAR", format: "mp3" },
-    { name: "UZI - SENIN UGRUNA", format: "m4a" },
-    { name: "G-Eazy x Halsey", format: "m4a" },
-    { name: "Röya – Düşürsən Tez-Tez Yada", format: "mp3" },
-    { name: "Miyagi", format: "mp3" },
-    { name: "Duman Kufi", format: "m4a" },
-    { name: "Ufuk Çalışkan Unutmak İstiyorum", format: "m4a" },
-    { name: "Berkay Altunyay - Olmazlara İnat", format: "m4a" },
-    { name: "Ömer Turacı – Şimdi o sevdiğim ışıklı yolu yalnız mı yürüyeceğim", format: "m4a" },
-    { name: "Alors On Dance x Ara Gevorgyan", format: "m4a" },
-    { name: "Adele - Skyfall", format: "m4a" }
+    { 
+      name: "Billion Stars", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+      title: "Billion Stars",
+      artist: "Senyorita"
+    },
+    { 
+      name: "Her Nerdeysen", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      title: "Her Nerdeysen",
+      artist: "Senyorita"
+    },
+    { 
+      name: "X POIZI - SONBAHAR", 
+      format: "mp3",
+      cover: "https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=400&h=400&fit=crop",
+      title: "SONBAHAR",
+      artist: "X POIZI"
+    },
+    { 
+      name: "UZI - SENIN UGRUNA", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop",
+      title: "SENİN UĞRUNA",
+      artist: "UZI"
+    },
+    { 
+      name: "G-Eazy x Halsey", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=400&fit=crop",
+      title: "Him & I",
+      artist: "G-Eazy x Halsey"
+    },
+    { 
+      name: "Röya – Düşürsən Tez-Tez Yada", 
+      format: "mp3",
+      cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop",
+      title: "Düşürsən Tez-Tez Yada",
+      artist: "Röya"
+    },
+    { 
+      name: "Miyagi", 
+      format: "mp3",
+      cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400&h=400&fit=crop",
+      title: "Tамaда",
+      artist: "Miyagi"
+    },
+    { 
+      name: "Duman Kufi", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=400&h=400&fit=crop",
+      title: "Kufi",
+      artist: "Duman"
+    },
+    { 
+      name: "Ufuk Çalışkan Unutmak İstiyorum", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1518609878370-e0f1f787d5f3?w=400&h=400&fit=crop",
+      title: "Unutmak İstiyorum",
+      artist: "Ufuk Çalışkan"
+    },
+    { 
+      name: "Berkay Altunyay - Olmazlara İnat", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&h=400&fit=crop",
+      title: "Olmazlara İnat",
+      artist: "Berkay Altunyay"
+    },
+    { 
+      name: "Ömer Turacı – Şimdi o sevdiğim ışıklı yolu yalnız mı yürüyeceğim", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      title: "Işıklı Yol",
+      artist: "Ömer Turacı"
+    },
+    { 
+      name: "Alors On Dance x Ara Gevorgyan", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=400&fit=crop",
+      title: "Alors On Dance",
+      artist: "Ara Gevorgyan"
+    },
+    { 
+      name: "Adele - Skyfall", 
+      format: "m4a",
+      cover: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=400&h=400&fit=crop",
+      title: "Skyfall",
+      artist: "Adele"
+    }
   ];
 
   songs.forEach((song, index) => {
@@ -404,6 +520,12 @@
     titleEl.offsetHeight; 
     titleEl.style.animation = 'marquee 12s linear infinite';
     titleEl.innerText = `♪ ${songData.name}`;
+
+    // Kapak resmini güncelle
+    coverImage.src = songData.cover;
+    coverImage.style.opacity = '1';
+    albumTitle.textContent = songData.title || songData.name;
+    albumArtist.textContent = songData.artist || '';
 
     document.getElementById(`track-${idx}`).classList.add('active');
     togglePlay(true);
@@ -451,7 +573,22 @@
     return `${min}:${sec < 10 ? '0' + sec : sec}`;
   }
 
-  window.onload = () => { document.getElementById('display-title').innerText = "Mahnı seçin"; };
+  // Progress bar'a tıkla
+  document.getElementById('progress-bar').addEventListener('click', function(e) {
+    const rect = this.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    if (audio.duration) {
+      audio.currentTime = pct * audio.duration;
+    }
+  });
+
+  window.onload = () => {
+    // Varsayılan bir kapak göster
+    coverImage.src = "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&h=400&fit=crop";
+    coverImage.style.opacity = '0.6';
+    albumTitle.textContent = "🎵 Senyorita Music Box";
+    albumArtist.textContent = "Mahnı seçin";
+  };
 </script>
 </body>
 </html>
